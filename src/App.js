@@ -11,6 +11,7 @@ import AuthService from "./services/auth.service";
 
 import Login from "./components/login.component";
 import Register from "./components/register.component";
+import RegisterAdmin from "./components/register.admin.component";
 import Home from "./components/home.component";
 import Profile from "./components/profile.component";
 import BoardUser from "./components/board-user.component";
@@ -56,7 +57,7 @@ class App extends Component {
             <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
           <Link to={"/"} className="navbar-brand">
-            bezKoder
+            DentalLUX
           </Link>
           <div className="navbar-nav mr-auto">
             <li className="nav-item">
@@ -75,7 +76,7 @@ class App extends Component {
 
             {showAdminBoard && (
               <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
+                <Link to={"/registerAdmin"} className="nav-link">
                   Create doctor
                 </Link>
               </li>
@@ -125,6 +126,7 @@ class App extends Component {
             <Route exact path={["/", "/home"]} component={Home} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/register" component={Register} />
+            <Route exact path="/registerAdmin" component={RegisterAdmin} />
             <Route exact path="/profile" component={Profile} />
             <Route path="/user" component={BoardUser} />
             <Route path="/mod" component={BoardModerator} />

@@ -68,7 +68,7 @@ const vpassword = value => {
   }
 };
 
-export default class Register extends Component {
+export default class RegisterAdmin extends Component {
   constructor(props) {
     super(props);
     this.handleRegister = this.handleRegister.bind(this);
@@ -76,7 +76,7 @@ export default class Register extends Component {
     this.onChangeFirstName = this.onChangeFirstName.bind(this);
     this.onChangeLastName = this.onChangeLastName.bind(this);
     this.onChangeEmail = this.onChangeEmail.bind(this);
-    this.onChangeRole = ["user"];
+    this.onChangeRole = ["doctor"];
     this.onChangePassword = this.onChangePassword.bind(this);
     
     this.state = {
@@ -84,7 +84,7 @@ export default class Register extends Component {
       fisrtName: "",
       lastName: "",
       email: "",
-      role: ["user"],
+      role: ["doctor"],
       password: "",
       successful: false,
       message: ""
@@ -124,7 +124,7 @@ export default class Register extends Component {
 
     onChangeRole() {
     this.setState({
-      role: ["user"]
+      role: ["doctor"]
     });
   }
 

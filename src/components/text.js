@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
-import './login.component.css'
-
 
 import AuthService from "../services/auth.service";
 
@@ -84,56 +82,48 @@ export default class Login extends Component {
   }
 
   render() {
-      
     return (
-    <body>
-      <div class="signin">
-         <div class="back-img">
-            <div class="sign-in-text">
-                <h2 class="active">Sign In</h2>
-            </div>
-            <div class="layer">
-            </div>
-            <p class="point">&#9650;</p>
-        </div>
-        <div class="form-section">
-          <Form action="#"
+      <div className="col-md-12">
+        <div className="card card-container">
+          <img
+            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+            alt="profile-img"
+            className="profile-img-card"
+          />
+
+          <Form
             onSubmit={this.handleLogin}
             ref={c => {
               this.form = c;
             }}
           >
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-              <Input 
+            <div className="form-group">
+              <label htmlFor="username">Username</label>
+              <Input
                 type="text"
-                attern=".{8,}" 
-                placeholder = "Username"
-                class="mdl-textfield__input" 
-                id="sample3"
+                className="form-control"
                 name="username"
                 value={this.state.username}
                 onChange={this.onChangeUsername}
                 validations={[required]}
               />
             </div>
-<br/>
-<br/>
 
-            <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+            <div className="form-group">
+              <label htmlFor="password">Password</label>
               <Input
                 type="password"
-                attern=".{8,}" 
-                class="mdl-textfield__input"
-                placeholder = "Password"
-                id ="sample3"
+                className="form-control"
                 name="password"
                 value={this.state.password}
                 onChange={this.onChangePassword}
                 validations={[required]}
               />
             </div>
-        <button
-                class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored"
+
+            <div className="form-group">
+              <button
+                className="btn btn-primary btn-block"
                 disabled={this.state.loading}
               >
                 {this.state.loading && (
@@ -141,29 +131,24 @@ export default class Login extends Component {
                 )}
                 <span>Login</span>
               </button>
-           
+            </div>
 
             {this.state.message && (
-              <div className="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored">
+              <div className="form-group">
                 <div className="alert alert-danger" role="alert">
                   {this.state.message}
                 </div>
               </div>
             )}
-            
             <CheckButton
-            class="sign-in-btn mdl-button mdl-js-ripple-effect mdl-js-button mdl-button--raised mdl-button--colored"
               style={{ display: "none" }}
               ref={c => {
                 this.checkBtn = c;
               }}
             />
-             
           </Form>
-
         </div>
-        </div>
-    </body>
+      </div>
     );
   }
 }
