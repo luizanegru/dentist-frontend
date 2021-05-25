@@ -1,0 +1,6 @@
+/* Change color of active time slots */
+html .md-theme-default.time-select.md-button:not([disabled]).md-raised:not(.md-icon-button):hover, 
+html .md-theme-default.time-select.md-button:not([disabled]).md-raised:not(.md-icon-button):focus {
+     background: white; 
+     color: black; 
+ }
